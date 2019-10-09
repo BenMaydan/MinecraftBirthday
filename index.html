@@ -23,7 +23,9 @@
 	
 	function daysTillBirthday() {
 		var now = new Date();
-		var then = new Date(currentYear()+1, birthdayMonth()-1, birthdayDay());
+		var then;
+		if (birthdayMonth() < currentMonth()) { then = new Date(currentYear()+1, birthdayMonth()-1, birthdayDay()); }
+		else { then = new Date(currentYear(), birthdayMonth()-1, birthdayDay()); }
 		return Math.round((then.getTime() - now.getTime()) / (1000 * 60 * 60 * 24)) * (daysInMinecraftYear()/365);
 	}
 	
