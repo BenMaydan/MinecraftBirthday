@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Minecraft Birthday</title>
+</head>
+	
+	
+	
+<script>
+	var minInMinecraftFullDay = 30;
+	
+	function write(text) { document.write(text); }
+	function daysInMinecraftYear() { return (365*24*60) / minInMinecraftFullDay; }
+	
+	function birthdayYear() { return document.getElementById("data").value.slice(0, 4); }
+	function birthdayMonth() { return document.getElementById("data").value.slice(5, 7); }
+	function birthdayDay() { return document.getElementById("data").value.slice(8, 10); }
+	
+	function currentYear() { var now = new Date(); return now.getFullYear(); }
+	function currentMonth() { var now = new Date(); return now.getMonth()+1; }
+	function currentDay() { var now = new Date(); return now.getDate(); }
+	
+	function daysTillBirthday() {
+		var now = new Date();
+		var then = new Date(currentYear()+1, birthdayMonth()-1, birthdayDay());
+		return Math.round((then.getTime() - now.getTime()) / (1000 * 60 * 60 * 24)) * (daysInMinecraftYear()/365);
+	}
+	
+	function changeText(elemId) {
+		document.getElementById(elemId).value = 'If you boot up Minecraft right now, your minecraft birthday will be in ' + (daysTillBirthday()) + " days!";
+	}
+</script>
+
+
+
+<body>
+	<header>
+    	<h1>Calculate your Minecraft birthday!</h1>
+    	<h3>This will calculate your Minecraft birthday if you log on right now</h3>
+    	<p>Minecraft is better than Fortnite</p>
+  	</header>
+	
+	<form id="bday_data">
+		Birthday: <input id="data" type="date" value="2004-03-26" onChange="changeText('txt');"><br>
+  		<input type="button" value="Submit" onclick="changeText('txt');">
+	</form>
+	
+	<textarea id="txt" rows="4" cols="50">If you boot up Minecraft right now, your minecraft birthday will be in NULL days!</textarea>
+
+</body>
+	
+
+</html>
