@@ -8,7 +8,7 @@
 	
 	
 <script>
-	var minInMinecraftFullDay = document.getElementById("minutesInMinecraftDay").value;
+	var minInMinecraftFullDay = 20;
 	function changeMinecraftMinutes() { minInMinecraftFullDay = document.getElementById("minutesInMinecraftDay").value; }
 	
 	function write(text) { document.write(text); }
@@ -46,7 +46,7 @@
 	
 	<form id="bday_data">
 		Birthday: <input id="data" type="date" value="2004-03-26" onChange="changeText('txt');"><br>
-		Minutes In a Minecraft Day: <input id="minutesInMinecraftDay" type="number" value="30" onChange="changeMinecraftMinutes();"><br>
+		Minutes In a Minecraft Day: <input id="minutesInMinecraftDay" type="number" value="20" onChange="changeMinecraftMinutes();"><br>
   		<input type="button" value="Submit" onclick="changeText('txt');">
 	</form>
 	
